@@ -20,13 +20,14 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .formula-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #2563eb;
+        }
     </style>
 </head>
 <body class="text-slate-800 antialiased h-screen flex overflow-hidden">
-    <!-- Chosen Palette: Cool neutral background (teal-50/f0fdfa) with Blue/Indigo as primary accent for tech/informatics feel, and Amber for keywords. -->
-    <!-- Application Structure Plan: A Dashboard and Flashcard interface specialized for Pedagogical Subject Knowledge (Informatics Grade 4). Sidebar filters by didactic topics (Methods, Structure, Scratch programming, Assessment). The dashboard visualizes the 5 Core Informatics Competencies and the 6 Topic distribution from the textbook to establish the pedagogical framework. -->
-    <!-- Visualization & Content Choices: 1. 5 Informatics Competencies -> Goal: Inform/Organize -> Radar Chart -> Interaction: Hover tooltips -> Justification: Shows the multi-dimensional goal of teaching IT. Library: Chart.js. 2. Topic Distribution -> Goal: Inform -> Donut Chart -> Interaction: Hover -> Justification: Visualizes curriculum weight (6 topics in Grade 4). Library: Chart.js. 3. Pedagogical Q&A -> Goal: Active Recall -> Interactive Cards -> Confirming NO SVG/Mermaid used. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <aside class="w-64 bg-white shadow-xl z-20 flex flex-col hidden md:flex h-full border-r border-blue-100">
         <div class="p-6 border-b border-blue-50 bg-blue-600 text-white">
@@ -57,10 +58,9 @@
                     <p class="text-slate-600">Nắm chắc 5 năng lực thành phần và cấu trúc 6 chủ đề của SGK Tin học 4 (Kết nối tri thức) là "vũ khí" để bạn tự tin trả lời mọi câu hỏi về mục tiêu và phân phối chương trình.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 flex flex-col items-center hover:shadow-md transition-shadow">
                         <h3 class="text-lg font-bold text-blue-900 mb-2 text-center">5 Năng lực Tin học (Mục tiêu)</h3>
-                        <p class="text-xs text-slate-500 mb-4 text-center">Đích đến cuối cùng của việc dạy Tin học cấp Tiểu học.</p>
                         <div class="chart-container w-full flex-1 flex justify-center items-center">
                             <canvas id="radarChart"></canvas>
                         </div>
@@ -68,9 +68,34 @@
                     
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 flex flex-col hover:shadow-md transition-shadow">
                         <h3 class="text-lg font-bold text-blue-900 mb-2 text-center">Cấu trúc 6 Chủ đề (Nội dung)</h3>
-                        <p class="text-xs text-slate-500 mb-4 text-center">Phân bổ nội dung SGK Tin học 4 - Kết nối tri thức.</p>
                         <div class="chart-container w-full flex-1 flex justify-center items-center">
                             <canvas id="donutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CÔNG THỨC XỬ LÝ TÌNH HUỐNG -->
+                <div class="formula-card p-6 rounded-2xl shadow-sm mb-6">
+                    <h2 class="text-xl font-bold text-blue-800 mb-3 flex items-center gap-2">
+                        🌟 CÔNG THỨC 4 BƯỚC XỬ LÝ TÌNH HUỐNG SƯ PHẠM (Học Thuộc Lòng)
+                    </h2>
+                    <p class="text-sm text-blue-700 mb-4">Khi đối diện với bất kỳ câu hỏi tình huống nào, hãy mở đầu bằng: <span class="font-semibold italic">"Dạ thưa Ban giám khảo, nếu gặp tình huống này, em sẽ bình tĩnh xử lý theo 4 bước sau:"</span> và áp dụng khung này:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-blue-700">Bước 1: Xử lý tại chỗ (Cắt đứt hành vi)</h4>
+                            <p class="text-sm text-slate-600 mt-1">Luôn luôn <b>BÌNH TĨNH</b>, không nóng giận. Yêu cầu học sinh dừng ngay hành động (để đảm bảo an toàn/trật tự). Tuyệt đối không quát mắng hay bêu rếu học sinh trước lớp.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-amber-600">Bước 2: Tìm hiểu nguyên nhân</h4>
+                            <p class="text-sm text-slate-600 mt-1">Lắng nghe học sinh giải thích. Việc vi phạm là do vô tình (khách quan) hay cố ý (chủ quan) để có biện pháp phù hợp.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-emerald-600">Bước 3: Giáo dục & Thuyết phục</h4>
+                            <p class="text-sm text-slate-600 mt-1">Dùng tình thương và <b>Nội quy phòng máy / Nội dung bài học</b> (như Đạo đức số) để phân tích cho các em hiểu cái sai. Cho các em cơ hội sửa sai.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-purple-600">Bước 4: Phối hợp & Lâu dài</h4>
+                            <p class="text-sm text-slate-600 mt-1">Nếu cần, phối hợp với Kỹ thuật viên (sửa máy), GV Chủ nhiệm hoặc Phụ huynh. Tự rút kinh nghiệm cho bản thân trong các tiết học sau.</p>
                         </div>
                     </div>
                 </div>
@@ -152,37 +177,46 @@
                 question: "Khi dạy Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số (Bài: Tôn trọng bản quyền, Giao tiếp an toàn), phương pháp tốt nhất của đồng chí là gì?",
                 answer: "Dạ, đây là nội dung hơi trừu tượng với học sinh lớp 4. Nếu chỉ giảng lý thuyết các em sẽ rất mau quên. Phương pháp của em là:<br><br>👉 <span class='keyword-highlight'>Dùng phương pháp kể chuyện và đóng vai.</span> Em sẽ đưa ra các tình huống thực tế (Ví dụ: Bạn A mượn bài vẽ của bạn B đăng lên mạng nhận là của mình -> Hỏi HS cảm thấy thế nào để hiểu về Bản quyền).<br>👉 <span class='keyword-highlight'>Trò chơi nhận diện:</span> Cho HS xem các tin nhắn giả mạo/đe dọa và thi nhau nhận diện đâu là tin nhắn an toàn, đâu là tin độc hại cần báo ngay cho bố mẹ, thầy cô."
             },
-            {
-                id: "p3_3",
-                topic: "Chuyên sâu: Dạy Lập trình & Đạo đức số",
-                topicId: "chuyen-sau",
-                icon: "🚀",
-                mantra: "Tập trung - Ngắn gọn - Liên hệ bản thân",
-                question: "Môn Tin học có yêu cầu sử dụng phòng máy. Đồng chí làm thế nào để quản lí lớp học tốt, học sinh không chơi game trong giờ?",
-                answer: "Dạ thưa BGK, quản lí phòng máy là kỹ năng quan trọng nhất. Biện pháp của em là:<br><br>1. <span class='keyword-highlight'>Quy định rõ ràng:</span> Ngay tiết đầu năm, phổ biến nội quy phòng máy, có thưởng phạt rõ ràng.<br>2. <span class='keyword-highlight'>Sử dụng phần mềm quản lí lớp:</span> (Như NetSupport School) để khóa màn hình khi GV đang giảng bài, chỉ mở khi bắt đầu thực hành.<br>3. <span class='keyword-highlight'>Giao nhiệm vụ liên tục:</span> Đảm bảo HS luôn có việc để làm, ai làm xong trước sẽ được giao 'nhiệm vụ nâng cao' hoặc được làm 'trợ giảng' đi giúp các bạn khác."
-            },
 
-            // TÌNH HUỐNG SƯ PHẠM (GIỚI HẠN SỞ)
+            // TÌNH HUỐNG SƯ PHẠM (CẬP NHẬT MỚI NHẤT)
             {
                 id: "th_1",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
                 mantra: "Bình tĩnh - Ngăn chặn - Giáo dục - Phối hợp",
-                question: "Tình huống: Trong giờ thực hành Tin học, đồng chí phát hiện một học sinh đang truy cập vào trang web có nội dung không phù hợp (game, web đen). Đồng chí xử lý thế nào?",
-                answer: "Dạ thưa BGK, với tình huống này em sẽ xử lý theo các bước:<br><br>1. <span class='keyword-highlight'>Xử lý ngay tại chỗ:</span> Nhẹ nhàng tiến đến máy của học sinh, yêu cầu em dừng thao tác và đóng trang web đó lại. Tuyệt đối không la mắng lớn tiếng làm ảnh hưởng cả lớp hay xúc phạm học sinh.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Nhẹ nhàng hỏi xem em vô tình bấm nhầm quảng cáo hay cố ý truy cập.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại bài học về 'Giao tiếp an toàn' và 'Đạo đức số', phân tích tác hại của việc truy cập web lạ để em tự nhận thức lỗi.<br>4. <span class='keyword-highlight'>Biện pháp kĩ thuật:</span> Báo cáo kĩ thuật viên để chặn tên miền đó trên hệ thống mạng của trường."
+                question: "Tình huống: Trong giờ thực hành Tin học, đồng chí phát hiện một học sinh đang truy cập vào trang web có nội dung không phù hợp (game bạo lực, web xấu). Đồng chí xử lý thế nào?",
+                answer: "Dạ thưa BGK, áp dụng công thức 4 bước, em sẽ xử lý như sau:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Bình tĩnh, không quát mắng lớn tiếng làm các bạn khác tò mò. Em tiến đến nhẹ nhàng yêu cầu học sinh đóng ngay trang web đó lại.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Em sẽ hỏi nhỏ xem em ấy vô tình ấn nhầm quảng cáo hay cố ý tìm kiếm.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại kiến thức bài 'Giao tiếp an toàn', phân tích nhanh tác hại của mã độc và nguy cơ bị lừa đảo để em tự nhận thức.<br>4. <span class='keyword-highlight'>Giải pháp lâu dài:</span> Em sẽ báo cáo với kĩ thuật viên để chặn tên miền đó trên hệ thống mạng của nhà trường."
             },
             {
                 id: "th_2",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
-                mantra: "Linh hoạt - Không để giờ trống",
-                question: "Tình huống: Máy chiếu hoặc hệ thống mạng phòng máy đột ngột bị hỏng trong giờ dạy Tin học. Đồng chí xử lý sự cố này ra sao?",
-                answer: "Dạ thưa BGK, đây là sự cố khách quan rất dễ gặp. Em sẽ xử lý linh hoạt như sau:<br><br>1. <span class='keyword-highlight'>Ổn định lớp:</span> Yêu cầu học sinh ngồi tại chỗ, giữ trật tự.<br>2. <span class='keyword-highlight'>Chuyển đổi phương pháp:</span> Nếu đang dạy lí thuyết, em sẽ chuyển sang dùng bảng phấn kết hợp cho học sinh quan sát hình ảnh trực tiếp trong SGK. Nếu là giờ thực hành mà có điện nhưng máy chiếu hỏng, em sẽ dùng phần mềm quản lý phòng máy (NetSupport) để đưa màn hình giáo viên xuống máy học sinh làm mẫu.<br>3. <span class='keyword-highlight'>Báo cáo:</span> Nhờ lớp trưởng báo với cán bộ kĩ thuật hoặc ban giám hiệu để khắc phục sau tiết học."
+                mantra: "Ngắt điện - An toàn - Xử lý phần cứng",
+                question: "Tình huống: Một học sinh lén mang nước uống vào phòng máy và vô tình làm đổ lên bàn phím. Đồng chí xử lý sự cố này ra sao?",
+                answer: "Dạ thưa BGK, đây là sự cố liên quan đến an toàn điện, em sẽ xử lý tức thời:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Lập tức yêu cầu học sinh tránh xa khỏi máy, nhanh chóng <span class='keyword-highlight'>rút phích cắm điện</span> của máy tính đó hoặc ngắt cầu dao khu vực để đảm bảo không bị chập cháy, điện giật.<br>2. <span class='keyword-highlight'>Tìm hiểu & Sơ cứu:</span> Nhanh chóng lau khô nước, lật úp bàn phím xuống. Không mắng nhiếc làm học sinh hoảng sợ khóc lóc.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhân cơ hội này, nhắc nhở toàn lớp về bài học 'An toàn phòng máy' và lí do tại sao nội quy cấm mang đồ ăn uống.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Giao máy khác cho em đó học tiếp, sau đó báo kĩ thuật viên kiểm tra máy bị ướt sau giờ học."
             },
             {
                 id: "th_3",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Điều phối - Nhắc nhở kĩ năng hợp tác",
+                question: "Tình huống: Do phòng máy thiếu thiết bị, 2 học sinh phải ngồi chung 1 máy tính. Trong giờ thực hành, hai em tranh giành chuột và cãi nhau. Đồng chí giải quyết thế nào?",
+                answer: "Dạ thưa BGK, tình trạng này khá phổ biến, em sẽ xử lý theo 4 bước:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Tiến đến bàn, yêu cầu hai em dừng tay, giữ trật tự để không ảnh hưởng lớp.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Lắng nghe các em giải thích (thường là do một bạn chiếm máy làm quá lâu không cho bạn kia làm).<br>3. <span class='keyword-highlight'>Giáo dục & Điều phối:</span> Em nhắc lại kĩ năng 'Dạy học hợp tác'. Phân xử rõ ràng: Phân chia thời gian (ví dụ bạn A làm 10 phút, bạn B quan sát hỗ trợ, sau đó đổi ngược lại). <br>4. <span class='keyword-highlight'>Rút kinh nghiệm:</span> Trong các tiết sau, em sẽ chủ động phân công rõ vai trò 'người thao tác' và 'người hướng dẫn' ngay từ đầu giờ để tránh xung đột."
+            },
+            {
+                id: "th_4",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Không bêu rếu - Giáo dục sự trung thực",
+                question: "Tình huống: Khi nộp bài thực hành (ví dụ tệp Word hoặc PowerPoint), đồng chí phát hiện bạn A copy y hệt file của bạn B rồi đổi tên nộp cho cô. Đồng chí sẽ làm gì?",
+                answer: "Dạ thưa BGK, với hành vi gian lận này, em sẽ xử lý khéo léo để bảo vệ lòng tự trọng của học sinh tiểu học:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em tuyệt đối không bêu rếu bạn A trước lớp là 'kẻ ăn cắp bài'. Em sẽ gọi riêng bạn A hoặc xuống tận nơi để nói chuyện.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Em có thể yêu cầu A thao tác lại một bước nhỏ trong bài. Nếu A không làm được, em hỏi nhẹ nhàng lí do vì sao copy (do không biết làm hay do không kịp thời gian).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại bài học số 6 về 'Đạo đức, pháp luật và văn hóa số' (Tôn trọng bản quyền, tài sản trí tuệ). Khẳng định việc lấy bài người khác là sai phẩm chất 'Trung thực'.<br>4. <span class='keyword-highlight'>Giải pháp:</span> Em cho bạn A cơ hội làm lại một bài đơn giản hơn và sẵn sàng hướng dẫn lại phần em ấy chưa hiểu để em ấy tự tin tự làm bài của mình."
+            },
+            {
+                id: "th_5",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
@@ -218,6 +252,44 @@
                 mantra: "Làm mẫu chuẩn - Khuyến khích sáng tạo",
                 question: "Đối với hoạt động Luyện tập và Vận dụng (đặc biệt là giờ thực hành máy), đồng chí có kinh nghiệm gì để quản lý tốt và phát triển năng lực học sinh?",
                 answer: "Dạ thưa BGK, giờ thực hành trên phòng máy rất dễ lộn xộn nếu không có phương pháp tốt. Kinh nghiệm của em là:<br><br>1. <span class='keyword-highlight'>Làm mẫu (Modeling):</span> Trước khi cho HS tự thực hành, GV thao tác mẫu chậm rãi trên màn hình chiếu 1-2 lần để HS ghi nhớ các bước.<br>2. <span class='keyword-highlight'>Học tập hợp tác:</span> Áp dụng 'đôi bạn cùng tiến', một bạn làm tốt hỗ trợ bạn làm chậm hơn. GV đi tuần tự quan sát, không ngồi một chỗ.<br>3. <span class='keyword-highlight'>Mở rộng & Sáng tạo ở phần Vận dụng:</span> Không gò ép tất cả phải làm giống hệt SGK. Em luôn khuyến khích các em thay đổi nội dung, màu sắc (ví dụ bài Scratch có thể đổi nhân vật) để phát huy cá tính, cuối giờ chiếu sản phẩm tiêu biểu để <span class='keyword-highlight'>tuyên dương trước lớp</span>."
+            },
+
+            // CÁC CÂU HỎI BỔ SUNG MỚI (PHƯƠNG PHÁP & TÌNH HUỐNG THỰC TẾ)
+            {
+                id: "p3_3",
+                topic: "Chuyên sâu: Dạy Word & PowerPoint",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Gõ thô trước - Trang trí sau",
+                question: "Khi dạy phần mềm Trình chiếu (PowerPoint) lớp 4, học sinh thường sa đà vào việc chèn hiệu ứng bay nhảy, chuyển trang mà quên mất nội dung. Đồng chí xử lý thế nào?",
+                answer: "Dạ thưa BGK, đây là tâm lý chung của trẻ nhỏ vì các em rất thích màu sắc và chuyển động. Để khắc phục, em sẽ áp dụng quy trình:<br><br>1. <span class='keyword-highlight'>Dạy theo các bước rõ ràng:</span> Bắt buộc học sinh làm theo nguyên tắc 'Gõ nội dung chữ thô trước -> Chèn hình ảnh sau -> Cuối cùng mới làm hiệu ứng'.<br>2. <span class='keyword-highlight'>Quy định tiêu chí đánh giá:</span> Ngay từ đầu giờ, em công bố barem điểm rõ ràng (ví dụ: Nội dung đủ ý 7 điểm, Hiệu ứng đẹp vừa phải 3 điểm).<br>3. <span class='keyword-highlight'>Cho xem mẫu chuẩn:</span> Cho các em xem 1 slide lòe loẹt, rối mắt và 1 slide chuẩn, tối giản để các em tự so sánh và rút ra bài học về thẩm mỹ."
+            },
+            {
+                id: "p3_4",
+                topic: "Chuyên sâu: Dạy Word & PowerPoint",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Vừa học vừa chơi - Thi đua gõ đúng",
+                question: "Học sinh lớp 4 khi học soạn thảo văn bản (Word) thường gõ rất chậm, hay mổ cò 1 ngón dẫn đến chán nản. Giải pháp của đồng chí là gì?",
+                answer: "Dạ thưa BGK, để rèn kĩ năng gõ phím mà không gây nhàm chán, em sẽ:<br><br>1. <span class='keyword-highlight'>Kết hợp phần mềm/trò chơi:</span> Đan xen 5-10 phút đầu giờ dùng các trò chơi luyện gõ 10 ngón (như Mario Teaches Typing, Typing.com) để tạo hứng thú.<br>2. <span class='keyword-highlight'>Ngữ liệu gần gũi:</span> Thay vì gõ các văn bản khô khan, em cho các em gõ các câu đố vui, bài thơ ngắn, hoặc giới thiệu về gia đình, sở thích của chính các em.<br>3. <span class='keyword-highlight'>Tổ chức thi đua:</span> Tổ chức các cuộc thi nhỏ 'Kiện tướng gõ phím' trong nhóm, tuyên dương những bạn đặt đúng tư thế tay và gõ chính xác (ưu tiên độ chính xác trước, tốc độ sau)."
+            },
+            {
+                id: "th_6",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Giữ hiện trạng - An toàn điện - Phối hợp BGH",
+                question: "Tình huống: Trong giờ thực hành, đồng chí phát hiện một nhóm học sinh đang tự ý tháo chuột, rút dây cáp bàn phím cắm sang máy khác để nghịch ngợm. Đồng chí xử lí ra sao?",
+                answer: "Dạ thưa BGK, áp dụng công thức 4 bước, em xử lý như sau:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Bình tĩnh, yêu cầu các em dừng lại ngay lập tức, bỏ tay ra khỏi thiết bị để tránh điện giật hoặc chập cháy.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Hỏi nhẹ nhàng nguyên nhân (do thiết bị hỏng nên các em tự đổi, hay chỉ là đùa nghịch).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Phân tích sự nguy hiểm của việc rút 'nóng' thiết bị điện, nhắc lại 'Nội quy phòng máy' (Tuyệt đối không tự ý tháo lắp thiết bị).<br>4. <span class='keyword-highlight'>Giải pháp:</span> Hướng dẫn các em cắm lại cẩn thận (dưới sự giám sát của GV). Nhấn mạnh nếu làm hỏng tài sản nhà trường, phụ huynh sẽ phải chịu trách nhiệm để các em có ý thức bảo vệ của công."
+            },
+            {
+                id: "th_7",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Chặn hành vi - Giao việc thêm",
+                question: "Tình huống: Trong giờ thực hành lập trình Scratch, đồng chí thấy một học sinh lén mở tab khác để chơi game. Khi cô đến gần, em đó vội bấm Alt+Tab (hoặc tắt đi) để che giấu. Đồng chí sẽ làm gì?",
+                answer: "Dạ thưa BGK, với lứa tuổi này các em rất hay tò mò. Em sẽ xử lý khéo léo:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Nhẹ nhàng tiến đến, không la mắng bêu rếu. Yêu cầu em mở lại màn hình vừa xem.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Em hỏi xem tại sao em không làm bài thực hành? (Do bài khó quá không biết làm hay do đã làm xong sớm hết rồi).<br>3. <span class='keyword-highlight'>Điều phối & Giáo dục:</span> <br>- Nếu chưa làm xong: Phân tích việc chơi game sai nội quy, giảng lại thao tác lập trình mà em đang vướng mắc.<br>- Nếu làm xong sớm: Em sẽ khen ngợi tốc độ của em, sau đó <span class='keyword-highlight'>giao thêm nhiệm vụ nâng cao</span> (ví dụ: lập trình thêm âm thanh/chướng ngại vật cho game Scratch) hoặc phân công em làm 'trợ giảng' đi hướng dẫn bạn khác.<br>4. <span class='keyword-highlight'>Giải pháp phòng ngừa:</span> Dùng phần mềm quản lý lớp (NetSupport) để theo dõi màn hình, khóa truy cập web không liên quan."
             }
         ];
 
@@ -230,13 +302,19 @@
             { id: 'tien-trinh', name: 'Tiến trình dạy học', icon: '⏱️' }
         ];
 
-        let currentFilter = 'all';
+        let currentFilter = 'tinh-huong'; // Default view to Situations for rapid prep
         let chartsInstance = {};
 
         function initApp() {
             renderNavigation();
             renderFlashcards();
             initCharts();
+            
+            // Set initial filter appearance correctly
+            const titleEl = document.getElementById('current-topic-title');
+            const topicName = topics.find(t => t.id === 'tinh-huong').name;
+            titleEl.innerHTML = `💡 Thẻ ghi nhớ: <span class="text-blue-600">${topicName}</span>`;
+            document.getElementById('dashboard-section').style.display = 'block'; // Keep dashboard visible
         }
 
         function renderNavigation() {
@@ -277,7 +355,12 @@
             } else {
                 const topicName = topics.find(t => t.id === topicId).name;
                 titleEl.innerHTML = `💡 Thẻ ghi nhớ: <span class="text-blue-600">${topicName}</span>`;
-                document.getElementById('dashboard-section').style.display = 'none';
+                // Hide dashboard on specific filters to focus on cards, except if user wants to see it.
+                if(topicId !== 'tinh-huong') {
+                    document.getElementById('dashboard-section').style.display = 'none';
+                } else {
+                    document.getElementById('dashboard-section').style.display = 'block';
+                }
             }
         }
 
@@ -306,7 +389,9 @@
                 }
 
                 const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl shadow-sm border border-blue-100 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1';
+                // Highlight situation cards
+                const isSituation = item.topicId === 'tinh-huong';
+                card.className = `bg-white rounded-2xl shadow-sm border ${isSituation ? 'border-amber-300' : 'border-blue-100'} overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`;
                 
                 const questionArea = document.createElement('div');
                 questionArea.className = 'p-6 cursor-pointer flex justify-between items-start gap-4 group';
@@ -314,7 +399,7 @@
                 questionArea.innerHTML = `
                     <div class="flex-1">
                         <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="text-[11px] font-bold text-white bg-blue-500 px-2 py-1 rounded-full uppercase tracking-wider shadow-sm">Câu hỏi</span>
+                            <span class="text-[11px] font-bold text-white ${isSituation ? 'bg-amber-500' : 'bg-blue-500'} px-2 py-1 rounded-full uppercase tracking-wider shadow-sm">Câu hỏi</span>
                             ${item.mantra ? `<span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full border border-amber-200 font-semibold shadow-sm inline-flex items-center gap-1">🔑 ${item.mantra}</span>` : ''}
                         </div>
                         <h4 class="text-lg font-bold text-slate-800 leading-snug group-hover:text-blue-700 transition-colors">${item.question}</h4>
@@ -326,8 +411,8 @@
 
                 const answerArea = document.createElement('div');
                 answerArea.id = `answer-${item.id}`;
-                answerArea.className = 'answer-reveal bg-gradient-to-b from-blue-50/50 to-white border-t border-blue-100 px-6 text-base text-slate-700 leading-relaxed';
-                answerArea.innerHTML = `<div class="py-6 border-l-4 border-blue-400 pl-4 my-2">${item.answer}</div>`;
+                answerArea.className = `answer-reveal bg-gradient-to-b ${isSituation ? 'from-amber-50/50' : 'from-blue-50/50'} to-white border-t ${isSituation ? 'border-amber-100' : 'border-blue-100'} px-6 text-base text-slate-700 leading-relaxed`;
+                answerArea.innerHTML = `<div class="py-6 border-l-4 ${isSituation ? 'border-amber-400' : 'border-blue-400'} pl-4 my-2">${item.answer}</div>`;
 
                 card.appendChild(questionArea);
                 card.appendChild(answerArea);
