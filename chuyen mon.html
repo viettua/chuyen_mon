@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bí kíp Vấn đáp Chuyên môn Tin học 4 (KNTT)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f0fdfa; } /* Light teal background */
+        .answer-reveal { transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out; overflow: hidden; max-height: 0; opacity: 0; }
+        .answer-reveal.open { max-height: 2500px; opacity: 1; }
+        .keyword-highlight { background-color: #fef08a; font-weight: 600; padding: 0 4px; border-radius: 4px; color: #854d0e; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased h-screen flex overflow-hidden">
+    <!-- Chosen Palette: Cool neutral background (teal-50/f0fdfa) with Blue/Indigo as primary accent for tech/informatics feel, and Amber for keywords. -->
+    <!-- Application Structure Plan: A Dashboard and Flashcard interface specialized for Pedagogical Subject Knowledge (Informatics Grade 4). Sidebar filters by didactic topics (Methods, Structure, Scratch programming, Assessment). The dashboard visualizes the 5 Core Informatics Competencies and the 6 Topic distribution from the textbook to establish the pedagogical framework. -->
+    <!-- Visualization & Content Choices: 1. 5 Informatics Competencies -> Goal: Inform/Organize -> Radar Chart -> Interaction: Hover tooltips -> Justification: Shows the multi-dimensional goal of teaching IT. Library: Chart.js. 2. Topic Distribution -> Goal: Inform -> Donut Chart -> Interaction: Hover -> Justification: Visualizes curriculum weight (6 topics in Grade 4). Library: Chart.js. 3. Pedagogical Q&A -> Goal: Active Recall -> Interactive Cards -> Confirming NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <aside class="w-64 bg-white shadow-xl z-20 flex flex-col hidden md:flex h-full border-r border-blue-100">
+        <div class="p-6 border-b border-blue-50 bg-blue-600 text-white">
+            <h1 class="text-xl font-bold leading-tight flex items-center gap-2">
+                💻 <br>Vấn đáp Chuyên môn<br><span class="text-sm font-normal text-blue-200">Tin học 4 - KNTT</span>
+            </h1>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-4 space-y-1" id="nav-filters">
+            <!-- Navigation injected by JS -->
+        </nav>
+        <div class="p-4 bg-blue-50 border-t border-blue-100 text-sm text-blue-700 font-medium text-center">
+            🚀 Dạy học kiến tạo - Phát triển năng lực
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col h-full relative">
+        <header class="bg-blue-600 shadow-md border-b border-blue-700 p-4 flex justify-between items-center md:hidden z-10 text-white">
+            <h1 class="text-lg font-bold flex items-center gap-2">💻 Vấn đáp Tin học 4</h1>
+            <select id="mobile-filter" class="border border-blue-400 rounded p-1.5 text-sm bg-blue-700 text-white focus:outline-none focus:ring-2 focus:ring-white">
+            </select>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-4 md:p-8 w-full max-w-7xl mx-auto scroll-smooth">
+            
+            <section id="dashboard-section" class="mb-10">
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-sm border border-blue-100">
+                    <h2 class="text-2xl font-bold text-blue-800 mb-2">📊 Khung Sư phạm Môn Tin học 4</h2>
+                    <p class="text-slate-600">Nắm chắc 5 năng lực thành phần và cấu trúc 6 chủ đề của SGK Tin học 4 (Kết nối tri thức) là "vũ khí" để bạn tự tin trả lời mọi câu hỏi về mục tiêu và phân phối chương trình.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 flex flex-col items-center hover:shadow-md transition-shadow">
+                        <h3 class="text-lg font-bold text-blue-900 mb-2 text-center">5 Năng lực Tin học (Mục tiêu)</h3>
+                        <p class="text-xs text-slate-500 mb-4 text-center">Đích đến cuối cùng của việc dạy Tin học cấp Tiểu học.</p>
+                        <div class="chart-container w-full flex-1 flex justify-center items-center">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 flex flex-col hover:shadow-md transition-shadow">
+                        <h3 class="text-lg font-bold text-blue-900 mb-2 text-center">Cấu trúc 6 Chủ đề (Nội dung)</h3>
+                        <p class="text-xs text-slate-500 mb-4 text-center">Phân bổ nội dung SGK Tin học 4 - Kết nối tri thức.</p>
+                        <div class="chart-container w-full flex-1 flex justify-center items-center">
+                            <canvas id="donutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="study-section">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-blue-800 mb-2 flex items-center gap-2" id="current-topic-title">
+                        💡 Thẻ ghi nhớ Chuyên môn
+                    </h2>
+                    <p class="text-slate-600">Hãy tưởng tượng Ban giám khảo đang ngồi trước mặt. Đọc câu hỏi, hít sâu, và tự nói câu trả lời bằng ngôn ngữ của riêng bạn dựa vào các <span class="keyword-highlight">Từ khóa màu vàng</span>.</p>
+                </div>
+
+                <div id="flashcards-container" class="space-y-4 pb-12">
+                    <!-- Cards injected by JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const qaData = [
+            // CẤU TRÚC VÀ ĐIỂM MỚI
+            {
+                id: "p1_1",
+                topic: "Tổng quan SGK & Cấu trúc bài học",
+                topicId: "tong-quan",
+                icon: "📘",
+                mantra: "Khởi động - Khám phá - Luyện tập - Vận dụng",
+                question: "Đồng chí hãy trình bày cấu trúc sư phạm của một bài học trong SGK Tin học 4 - Kết nối tri thức?",
+                answer: "Dạ thưa Ban giám khảo, quán triệt thông điệp 'Kết nối tri thức với cuộc sống', mỗi bài học trong SGK Tin học 4 được thiết kế chuẩn theo chuỗi 4 hoạt động:<br><br>1. <span class='keyword-highlight'>Khởi động:</span> Nêu vấn đề, tình huống thực tế để tạo hứng thú.<br>2. <span class='keyword-highlight'>Khám phá:</span> Giúp HS tự kiến tạo kiến thức/kỹ năng mới thông qua các hoạt động nhỏ (có mục 'Hoạt động', 'Câu hỏi').<br>3. <span class='keyword-highlight'>Luyện tập:</span> Thực hành trên máy hoặc làm bài tập để củng cố ngay kiến thức.<br>4. <span class='keyword-highlight'>Vận dụng:</span> Đưa ra tình huống mới, gắn với thực tiễn để HS vận dụng sáng tạo những gì đã học."
+            },
+            {
+                id: "p1_2",
+                topic: "Tổng quan SGK & Cấu trúc bài học",
+                topicId: "tong-quan",
+                icon: "📘",
+                mantra: "Trực quan - Thực hành - Cuộc sống",
+                question: "Theo đồng chí, điểm nổi bật nhất của SGK Tin học 4 (KNTT) so với chương trình cũ là gì?",
+                answer: "Dạ thưa BGK, có 3 điểm nổi bật nhất ạ:<br><br>👉 Thứ nhất, sách <span class='keyword-highlight'>rất trực quan và hấp dẫn</span>, nhiều hình ảnh minh họa bám sát tâm lý lứa tuổi tiểu học.<br>👉 Thứ hai, chuyển mạnh từ lý thuyết sang <span class='keyword-highlight'>chú trọng thực hành và giải quyết vấn đề</span>. HS được làm ra sản phẩm thật.<br>👉 Thứ ba, nội dung gắn liền với <span class='keyword-highlight'>tình huống cuộc sống</span> (Ví dụ: Bản quyền, Giao tiếp an toàn, Lập trình Scratch) giúp các em không chỉ biết dùng máy tính mà còn trở thành 'công dân số' có trách nhiệm."
+            },
+
+            // PHƯƠNG PHÁP & ĐÁNH GIÁ
+            {
+                id: "p2_1",
+                topic: "Phương pháp & Đánh giá môn học",
+                topicId: "phuong-phap",
+                icon: "🛠️",
+                mantra: "Trực quan - Làm mẫu - Giải quyết vấn đề",
+                question: "Đồng chí sẽ ưu tiên sử dụng những phương pháp dạy học chủ đạo nào khi dạy thực hành Tin học 4?",
+                answer: "Dạ thưa BGK, với đặc thù môn Tin học rất cần thực hành, em sẽ ưu tiên sử dụng:<br><br>1. <span class='keyword-highlight'>Phương pháp Dạy học trực quan và Làm mẫu:</span> Em thao tác trực tiếp trên màn hình chiếu, HS quan sát sau đó thực hành lại.<br>2. <span class='keyword-highlight'>Dạy học Giải quyết vấn đề:</span> Đưa ra các 'nhiệm vụ/sản phẩm' cụ thể (ví dụ: Tạo một thư mục chứa ảnh gia đình) để HS đi tìm cách giải quyết.<br>3. <span class='keyword-highlight'>Dạy học hợp tác (Thảo luận nhóm):</span> Cho các em ngồi theo nhóm máy để hỗ trợ nhau sửa lỗi, chia sẻ cách làm nhanh nhất."
+            },
+            {
+                id: "p2_2",
+                topic: "Phương pháp & Đánh giá môn học",
+                topicId: "phuong-phap",
+                icon: "🛠️",
+                mantra: "Đánh giá quá trình - Qua sản phẩm",
+                question: "Việc kiểm tra, đánh giá môn Tin học 4 được đồng chí thực hiện như thế nào để vừa đúng luật vừa hiệu quả?",
+                answer: "Dạ, em thực hiện nghiêm túc theo Thông tư 27. Cụ thể:<br><br>👉 Em <span class='keyword-highlight'>chú trọng đánh giá thường xuyên</span> ngay trong từng tiết học bằng cách quan sát thao tác tay của HS, thái độ hợp tác và đặc biệt là <span class='keyword-highlight'>đánh giá qua sản phẩm thực hành</span> trên máy.<br>👉 Em dùng lời nhận xét để <span class='keyword-highlight'>động viên, khích lệ kịp thời</span>, chỉ ra lỗi sai để HS sửa ngay, tuyệt đối không tạo áp lực điểm số, giúp các em yêu thích môn học."
+            },
+
+            // XỬ LÝ CHỦ ĐỀ KHÓ (SCRATCH, ĐẠO ĐỨC)
+            {
+                id: "p3_1",
+                topic: "Chuyên sâu: Dạy Lập trình & Đạo đức số",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Từ dễ đến khó - Vừa học vừa chơi",
+                question: "Chủ đề 6 (Giải quyết vấn đề với sự trợ giúp của máy tính) yêu cầu dạy phần mềm Scratch. Đồng chí sẽ làm gì để học sinh lớp 4 không bị 'ngợp'?",
+                answer: "Dạ thưa BGK, Scratch là ngôn ngữ lập trình trực quan, rất hay nhưng có thể lạ lẫm. Để HS không ngợp, em sẽ:<br><br>1. <span class='keyword-highlight'>Vừa học vừa chơi:</span> Giới thiệu Scratch như một công cụ 'xếp hình lego' để tạo ra phim hoạt hình hoặc trò chơi.<br>2. <span class='keyword-highlight'>Chia nhỏ nhiệm vụ:</span> Không dạy quá nhiều lệnh một lúc. Ví dụ: Tiết 1 chỉ học cách kéo lệnh di chuyển; Tiết 2 học lệnh vòng lặp.<br>3. <span class='keyword-highlight'>Học qua ví dụ:</span> Em sẽ cho chạy thử một sản phẩm mẫu thú vị (ví dụ: Mèo bắt chuột) để kích thích sự tò mò, sau đó hướng dẫn HS tự làm lại từng bước."
+            },
+            {
+                id: "p3_2",
+                topic: "Chuyên sâu: Dạy Lập trình & Đạo đức số",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Kể chuyện - Đóng vai - Trải nghiệm thực tế",
+                question: "Khi dạy Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số (Bài: Tôn trọng bản quyền, Giao tiếp an toàn), phương pháp tốt nhất của đồng chí là gì?",
+                answer: "Dạ, đây là nội dung hơi trừu tượng với học sinh lớp 4. Nếu chỉ giảng lý thuyết các em sẽ rất mau quên. Phương pháp của em là:<br><br>👉 <span class='keyword-highlight'>Dùng phương pháp kể chuyện và đóng vai.</span> Em sẽ đưa ra các tình huống thực tế (Ví dụ: Bạn A mượn bài vẽ của bạn B đăng lên mạng nhận là của mình -> Hỏi HS cảm thấy thế nào để hiểu về Bản quyền).<br>👉 <span class='keyword-highlight'>Trò chơi nhận diện:</span> Cho HS xem các tin nhắn giả mạo/đe dọa và thi nhau nhận diện đâu là tin nhắn an toàn, đâu là tin độc hại cần báo ngay cho bố mẹ, thầy cô."
+            },
+            {
+                id: "p3_3",
+                topic: "Chuyên sâu: Dạy Lập trình & Đạo đức số",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Tập trung - Ngắn gọn - Liên hệ bản thân",
+                question: "Môn Tin học có yêu cầu sử dụng phòng máy. Đồng chí làm thế nào để quản lí lớp học tốt, học sinh không chơi game trong giờ?",
+                answer: "Dạ thưa BGK, quản lí phòng máy là kỹ năng quan trọng nhất. Biện pháp của em là:<br><br>1. <span class='keyword-highlight'>Quy định rõ ràng:</span> Ngay tiết đầu năm, phổ biến nội quy phòng máy, có thưởng phạt rõ ràng.<br>2. <span class='keyword-highlight'>Sử dụng phần mềm quản lí lớp:</span> (Như NetSupport School) để khóa màn hình khi GV đang giảng bài, chỉ mở khi bắt đầu thực hành.<br>3. <span class='keyword-highlight'>Giao nhiệm vụ liên tục:</span> Đảm bảo HS luôn có việc để làm, ai làm xong trước sẽ được giao 'nhiệm vụ nâng cao' hoặc được làm 'trợ giảng' đi giúp các bạn khác."
+            },
+
+            // TÌNH HUỐNG SƯ PHẠM (GIỚI HẠN SỞ)
+            {
+                id: "th_1",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Bình tĩnh - Ngăn chặn - Giáo dục - Phối hợp",
+                question: "Tình huống: Trong giờ thực hành Tin học, đồng chí phát hiện một học sinh đang truy cập vào trang web có nội dung không phù hợp (game, web đen). Đồng chí xử lý thế nào?",
+                answer: "Dạ thưa BGK, với tình huống này em sẽ xử lý theo các bước:<br><br>1. <span class='keyword-highlight'>Xử lý ngay tại chỗ:</span> Nhẹ nhàng tiến đến máy của học sinh, yêu cầu em dừng thao tác và đóng trang web đó lại. Tuyệt đối không la mắng lớn tiếng làm ảnh hưởng cả lớp hay xúc phạm học sinh.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Nhẹ nhàng hỏi xem em vô tình bấm nhầm quảng cáo hay cố ý truy cập.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại bài học về 'Giao tiếp an toàn' và 'Đạo đức số', phân tích tác hại của việc truy cập web lạ để em tự nhận thức lỗi.<br>4. <span class='keyword-highlight'>Biện pháp kĩ thuật:</span> Báo cáo kĩ thuật viên để chặn tên miền đó trên hệ thống mạng của trường."
+            },
+            {
+                id: "th_2",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Linh hoạt - Không để giờ trống",
+                question: "Tình huống: Máy chiếu hoặc hệ thống mạng phòng máy đột ngột bị hỏng trong giờ dạy Tin học. Đồng chí xử lý sự cố này ra sao?",
+                answer: "Dạ thưa BGK, đây là sự cố khách quan rất dễ gặp. Em sẽ xử lý linh hoạt như sau:<br><br>1. <span class='keyword-highlight'>Ổn định lớp:</span> Yêu cầu học sinh ngồi tại chỗ, giữ trật tự.<br>2. <span class='keyword-highlight'>Chuyển đổi phương pháp:</span> Nếu đang dạy lí thuyết, em sẽ chuyển sang dùng bảng phấn kết hợp cho học sinh quan sát hình ảnh trực tiếp trong SGK. Nếu là giờ thực hành mà có điện nhưng máy chiếu hỏng, em sẽ dùng phần mềm quản lý phòng máy (NetSupport) để đưa màn hình giáo viên xuống máy học sinh làm mẫu.<br>3. <span class='keyword-highlight'>Báo cáo:</span> Nhờ lớp trưởng báo với cán bộ kĩ thuật hoặc ban giám hiệu để khắc phục sau tiết học."
+            },
+            {
+                id: "th_3",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Khích lệ - Kèm cặp - Chia nhỏ nhiệm vụ",
+                question: "Tình huống: Trong lớp có một học sinh tiếp thu rất chậm, thao tác chuột/phím yếu, luôn không hoàn thành bài thực hành. Đồng chí sẽ giúp đỡ em đó ra sao?",
+                answer: "Dạ thưa BGK, theo đúng tinh thần Thông tư 27 (đánh giá vì sự tiến bộ, không tạo áp lực), em sẽ thực hiện:<br><br>1. <span class='keyword-highlight'>Giảm tải yêu cầu:</span> Chia nhỏ nhiệm vụ bài thực hành. Thay vì yêu cầu em làm toàn bộ sản phẩm, em chỉ yêu cầu em làm được 1-2 thao tác cơ bản nhất.<br>2. <span class='keyword-highlight'>Đôi bạn cùng tiến:</span> Xếp em ngồi cạnh một bạn học tốt, nhiệt tình để được hỗ trợ trực tiếp (Dạy học hợp tác).<br>3. <span class='keyword-highlight'>Động viên kịp thời:</span> Chỉ cần em hoàn thành được một bước nhỏ, em sẽ khen ngợi ngay trước lớp để tạo động lực và sự tự tin cho em."
+            },
+
+            // TIẾN TRÌNH DẠY HỌC (KINH NGHIỆM THỰC CHIẾN)
+            {
+                id: "tt_1",
+                topic: "Tiến trình dạy học (Kinh nghiệm)",
+                topicId: "tien-trinh",
+                icon: "⏱️",
+                mantra: "Phân bổ thời gian hợp lý - Tránh cháy giáo án",
+                question: "Theo kinh nghiệm thực tế, đồng chí sẽ phân bổ thời gian như thế nào cho 4 hoạt động của một tiết học (35 phút) để không bị 'cháy giáo án'?",
+                answer: "Dạ thưa BGK, để tiết học hiệu quả và đúng tiến độ, kinh nghiệm của những người đi trước chia sẻ là cần kiểm soát thời gian chặt chẽ:<br><br>1. <span class='keyword-highlight'>Khởi động (3-5 phút):</span> Ngắn gọn, vui nhộn (trò chơi, video, câu đố) để tạo tâm thế, tuyệt đối không kéo dài.<br>2. <span class='keyword-highlight'>Khám phá (10-12 phút):</span> Tập trung vào trọng tâm, dùng trực quan hoặc thảo luận nhóm để rút ra kiến thức cốt lõi. GV không nói dông dài.<br>3. <span class='keyword-highlight'>Luyện tập/Thực hành (12-15 phút):</span> Dành phần lớn thời gian cho học sinh thao tác trên máy. Trọng tâm của Tin học là thực hành.<br>4. <span class='keyword-highlight'>Vận dụng & Củng cố (3-5 phút):</span> Chốt lại kiến thức, giao nhiệm vụ mở gắn với thực tiễn gia đình/nhà trường."
+            },
+            {
+                id: "tt_2",
+                topic: "Tiến trình dạy học (Kinh nghiệm)",
+                topicId: "tien-trinh",
+                icon: "⏱️",
+                mantra: "Khởi động vui - Khám phá mở",
+                question: "Kinh nghiệm để tổ chức hoạt động Khởi động và Khám phá thu hút, phát huy được tính tích cực của học sinh lớp 4?",
+                answer: "Dạ, để phát huy tối đa năng lực học sinh:<br><br>👉 <span class='keyword-highlight'>Về Khởi động:</span> Tuyệt đối tránh hỏi bài cũ theo kiểu 'trả bài cứng nhắc'. Em sẽ dùng các tình huống có vấn đề, trò chơi tương tác (nếu có máy chiếu) hoặc kể chuyện để kết nối tự nhiên vào bài mới.<br>👉 <span class='keyword-highlight'>Về Khám phá:</span> Tuân thủ nguyên tắc 'Giáo viên không làm thay, không nói thay'. Em sử dụng phương pháp nêu vấn đề, yêu cầu HS quan sát SGK hoặc thảo luận nhóm để tự tìm ra kiến thức. Sau đó, GV mới đứng ra <span class='keyword-highlight'>'chốt chuẩn kiến thức'</span>."
+            },
+            {
+                id: "tt_3",
+                topic: "Tiến trình dạy học (Kinh nghiệm)",
+                topicId: "tien-trinh",
+                icon: "⏱️",
+                mantra: "Làm mẫu chuẩn - Khuyến khích sáng tạo",
+                question: "Đối với hoạt động Luyện tập và Vận dụng (đặc biệt là giờ thực hành máy), đồng chí có kinh nghiệm gì để quản lý tốt và phát triển năng lực học sinh?",
+                answer: "Dạ thưa BGK, giờ thực hành trên phòng máy rất dễ lộn xộn nếu không có phương pháp tốt. Kinh nghiệm của em là:<br><br>1. <span class='keyword-highlight'>Làm mẫu (Modeling):</span> Trước khi cho HS tự thực hành, GV thao tác mẫu chậm rãi trên màn hình chiếu 1-2 lần để HS ghi nhớ các bước.<br>2. <span class='keyword-highlight'>Học tập hợp tác:</span> Áp dụng 'đôi bạn cùng tiến', một bạn làm tốt hỗ trợ bạn làm chậm hơn. GV đi tuần tự quan sát, không ngồi một chỗ.<br>3. <span class='keyword-highlight'>Mở rộng & Sáng tạo ở phần Vận dụng:</span> Không gò ép tất cả phải làm giống hệt SGK. Em luôn khuyến khích các em thay đổi nội dung, màu sắc (ví dụ bài Scratch có thể đổi nhân vật) để phát huy cá tính, cuối giờ chiếu sản phẩm tiêu biểu để <span class='keyword-highlight'>tuyên dương trước lớp</span>."
+            }
+        ];
+
+        const topics = [
+            { id: 'all', name: 'Tất cả chủ đề', icon: '🌐' },
+            { id: 'tong-quan', name: 'Cấu trúc bài học SGK', icon: '📘' },
+            { id: 'phuong-phap', name: 'PPDH & Đánh giá', icon: '🛠️' },
+            { id: 'chuyen-sau', name: 'Scratch & Đạo đức số', icon: '🚀' },
+            { id: 'tinh-huong', name: 'Tình huống Sư phạm', icon: '🛡️' },
+            { id: 'tien-trinh', name: 'Tiến trình dạy học', icon: '⏱️' }
+        ];
+
+        let currentFilter = 'all';
+        let chartsInstance = {};
+
+        function initApp() {
+            renderNavigation();
+            renderFlashcards();
+            initCharts();
+        }
+
+        function renderNavigation() {
+            const navContainer = document.getElementById('nav-filters');
+            const mobileSelect = document.getElementById('mobile-filter');
+            
+            navContainer.innerHTML = '';
+            mobileSelect.innerHTML = '';
+
+            topics.forEach(topic => {
+                const btn = document.createElement('button');
+                const isSelected = topic.id === currentFilter;
+                
+                btn.className = `w-full text-left px-4 py-3 rounded-xl transition-all flex items-center gap-3 text-sm font-semibold border ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-md transform scale-[1.02]' : 'text-blue-800 bg-transparent border-transparent hover:bg-blue-100'}`;
+                btn.innerHTML = `<span class="text-lg">${topic.icon}</span> <span>${topic.name}</span>`;
+                btn.onclick = () => setFilter(topic.id);
+                navContainer.appendChild(btn);
+
+                const option = document.createElement('option');
+                option.value = topic.id;
+                option.text = topic.name;
+                if(isSelected) option.selected = true;
+                mobileSelect.appendChild(option);
+            });
+
+            mobileSelect.addEventListener('change', (e) => setFilter(e.target.value));
+        }
+
+        function setFilter(topicId) {
+            currentFilter = topicId;
+            renderNavigation();
+            renderFlashcards();
+            
+            const titleEl = document.getElementById('current-topic-title');
+            if(topicId === 'all') {
+                titleEl.innerHTML = `💡 Thẻ ghi nhớ Chuyên môn`;
+                document.getElementById('dashboard-section').style.display = 'block';
+            } else {
+                const topicName = topics.find(t => t.id === topicId).name;
+                titleEl.innerHTML = `💡 Thẻ ghi nhớ: <span class="text-blue-600">${topicName}</span>`;
+                document.getElementById('dashboard-section').style.display = 'none';
+            }
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = '';
+
+            const filteredData = currentFilter === 'all' ? qaData : qaData.filter(q => q.topicId === currentFilter);
+
+            if (filteredData.length === 0) {
+                container.innerHTML = '<p class="text-slate-500 italic p-4 text-center">Đang cập nhật câu hỏi.</p>';
+                return;
+            }
+
+            let currentTopicHeader = '';
+
+            filteredData.forEach(item => {
+                if (currentFilter === 'all' && currentTopicHeader !== item.topic) {
+                    const header = document.createElement('div');
+                    header.className = 'mt-10 mb-5 border-b-2 border-blue-200 pb-2 flex flex-col md:flex-row md:items-center justify-between gap-2';
+                    header.innerHTML = `
+                        <h3 class="text-xl font-bold text-blue-900 flex items-center gap-2">${item.icon} ${item.topic}</h3>
+                    `;
+                    container.appendChild(header);
+                    currentTopicHeader = item.topic;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl shadow-sm border border-blue-100 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1';
+                
+                const questionArea = document.createElement('div');
+                questionArea.className = 'p-6 cursor-pointer flex justify-between items-start gap-4 group';
+                questionArea.onclick = () => toggleAnswer(item.id);
+                questionArea.innerHTML = `
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span class="text-[11px] font-bold text-white bg-blue-500 px-2 py-1 rounded-full uppercase tracking-wider shadow-sm">Câu hỏi</span>
+                            ${item.mantra ? `<span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full border border-amber-200 font-semibold shadow-sm inline-flex items-center gap-1">🔑 ${item.mantra}</span>` : ''}
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 leading-snug group-hover:text-blue-700 transition-colors">${item.question}</h4>
+                    </div>
+                    <button class="shrink-0 bg-blue-50 hover:bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-xl transition-all border border-blue-200 focus:outline-none shadow-sm flex items-center gap-1" id="btn-${item.id}">
+                        Xem đáp án <span class="text-lg leading-none">▾</span>
+                    </button>
+                `;
+
+                const answerArea = document.createElement('div');
+                answerArea.id = `answer-${item.id}`;
+                answerArea.className = 'answer-reveal bg-gradient-to-b from-blue-50/50 to-white border-t border-blue-100 px-6 text-base text-slate-700 leading-relaxed';
+                answerArea.innerHTML = `<div class="py-6 border-l-4 border-blue-400 pl-4 my-2">${item.answer}</div>`;
+
+                card.appendChild(questionArea);
+                card.appendChild(answerArea);
+                container.appendChild(card);
+            });
+        }
+
+        function toggleAnswer(id) {
+            const answerEl = document.getElementById(`answer-${id}`);
+            const btnEl = document.getElementById(`btn-${id}`);
+            
+            const isOpen = answerEl.classList.contains('open');
+            
+            if (isOpen) {
+                answerEl.classList.remove('open');
+                btnEl.innerHTML = 'Xem đáp án <span class="text-lg leading-none">▾</span>';
+                btnEl.classList.remove('bg-blue-600', 'text-white', 'border-blue-700');
+                btnEl.classList.add('bg-blue-50', 'text-blue-700', 'border-blue-200');
+            } else {
+                answerEl.classList.add('open');
+                btnEl.innerHTML = 'Đóng lại <span class="text-lg leading-none">▴</span>';
+                btnEl.classList.remove('bg-blue-50', 'text-blue-700', 'border-blue-200');
+                btnEl.classList.add('bg-blue-600', 'text-white', 'border-blue-700');
+            }
+        }
+
+        function initCharts() {
+            // Radar Chart for 5 Informatics Competencies
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            chartsInstance.radar = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        ['Sử dụng', 'thiết bị/phần mềm'], 
+                        ['Ứng xử', 'môi trường số'], 
+                        ['Lưu trữ,', 'tìm kiếm thông tin'], 
+                        ['Ứng dụng', 'CNTT'], 
+                        ['Giải quyết', 'vấn đề (Scratch)']
+                    ],
+                    datasets: [{
+                        label: 'Trọng tâm ở Tiểu học',
+                        data: [10, 8, 9, 7, 9], 
+                        backgroundColor: 'rgba(37, 99, 235, 0.2)', // blue-600
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(37, 99, 235, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                            pointLabels: {
+                                font: { family: 'Inter', size: 11, weight: '600' },
+                                color: '#1e3a8a' // blue-900
+                            },
+                            ticks: { display: false, max: 10, min: 0 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(30, 58, 138, 0.9)', // blue-900
+                            titleFont: { family: 'Inter', size: 13 },
+                            bodyFont: { family: 'Inter', size: 12 },
+                            padding: 10
+                        }
+                    }
+                }
+            });
+
+            // Donut Chart for 6 Topics Distribution in Grade 4
+            const donutCtx = document.getElementById('donutChart').getContext('2d');
+            chartsInstance.donut = new Chart(donutCtx, {
+                type: 'pie', // Changed to pie for clear proportion, acting as donut with cutout
+                data: {
+                    labels: [
+                        'CĐ1: Máy tính & Em', 
+                        'CĐ2: Mạng & Internet', 
+                        'CĐ3: Tổ chức & Lưu trữ', 
+                        'CĐ4: Đạo đức số',
+                        'CĐ5: Ứng dụng Tin học (Word, PPT)',
+                        'CĐ6: Giải quyết VĐ (Scratch)'
+                    ],
+                    datasets: [{
+                        data: [3, 2, 2, 2, 4, 3], // Approximate distribution of lessons/time
+                        backgroundColor: [
+                            '#3b82f6', // blue
+                            '#10b981', // emerald
+                            '#f59e0b', // amber
+                            '#ef4444', // red
+                            '#8b5cf6', // violet
+                            '#14b8a6'  // teal
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    cutout: '50%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: { family: 'Inter', size: 11 },
+                                color: '#475569',
+                                usePointStyle: true,
+                                padding: 12
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(30, 58, 138, 0.9)',
+                            titleFont: { family: 'Inter', size: 12 },
+                            bodyFont: { family: 'Inter', size: 12 },
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: Khoảng ${context.raw} Bài học`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
