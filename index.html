@@ -10,7 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f0fdfa; } /* Light teal background */
         .answer-reveal { transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out; overflow: hidden; max-height: 0; opacity: 0; }
-        .answer-reveal.open { max-height: 3500px; opacity: 1; }
+        .answer-reveal.open { max-height: 2500px; opacity: 1; }
         .keyword-highlight { background-color: #fef08a; font-weight: 600; padding: 0 4px; border-radius: 4px; color: #854d0e; }
         .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
         @media (min-width: 768px) { .chart-container { height: 350px; } }
@@ -178,7 +178,7 @@
                 answer: "Dạ, đây là nội dung hơi trừu tượng với học sinh lớp 4. Nếu chỉ giảng lý thuyết các em sẽ rất mau quên. Phương pháp của em là:<br><br>👉 <span class='keyword-highlight'>Dùng phương pháp kể chuyện và đóng vai.</span> Em sẽ đưa ra các tình huống thực tế (Ví dụ: Bạn A mượn bài vẽ của bạn B đăng lên mạng nhận là của mình -> Hỏi HS cảm thấy thế nào để hiểu về Bản quyền).<br>👉 <span class='keyword-highlight'>Trò chơi nhận diện:</span> Cho HS xem các tin nhắn giả mạo/đe dọa và thi nhau nhận diện đâu là tin nhắn an toàn, đâu là tin độc hại cần báo ngay cho bố mẹ, thầy cô."
             },
 
-            // TÌNH HUỐNG SƯ PHẠM (CŨ)
+            // TÌNH HUỐNG SƯ PHẠM (CẬP NHẬT MỚI NHẤT)
             {
                 id: "th_1",
                 topic: "Xử lý Tình huống Sư phạm",
@@ -198,105 +198,76 @@
                 answer: "Dạ thưa BGK, đây là sự cố liên quan đến an toàn điện, em sẽ xử lý tức thời:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Lập tức yêu cầu học sinh tránh xa khỏi máy, nhanh chóng <span class='keyword-highlight'>rút phích cắm điện</span> của máy tính đó hoặc ngắt cầu dao khu vực để đảm bảo không bị chập cháy, điện giật.<br>2. <span class='keyword-highlight'>Tìm hiểu & Sơ cứu:</span> Nhanh chóng lau khô nước, lật úp bàn phím xuống. Không mắng nhiếc làm học sinh hoảng sợ khóc lóc.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhân cơ hội này, nhắc nhở toàn lớp về bài học 'An toàn phòng máy' và lí do tại sao nội quy cấm mang đồ ăn uống.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Giao máy khác cho em đó học tiếp, sau đó báo kĩ thuật viên kiểm tra máy bị ướt sau giờ học."
             },
             {
+                id: "th_3",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Điều phối - Nhắc nhở kĩ năng hợp tác",
+                question: "Tình huống: Do phòng máy thiếu thiết bị, 2 học sinh phải ngồi chung 1 máy tính. Trong giờ thực hành, hai em tranh giành chuột và cãi nhau. Đồng chí giải quyết thế nào?",
+                answer: "Dạ thưa BGK, tình trạng này khá phổ biến, em sẽ xử lý theo 4 bước:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Tiến đến bàn, yêu cầu hai em dừng tay, giữ trật tự để không ảnh hưởng lớp.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Lắng nghe các em giải thích (thường là do một bạn chiếm máy làm quá lâu không cho bạn kia làm).<br>3. <span class='keyword-highlight'>Giáo dục & Điều phối:</span> Em nhắc lại kĩ năng 'Dạy học hợp tác'. Phân xử rõ ràng: Phân chia thời gian (ví dụ bạn A làm 10 phút, bạn B quan sát hỗ trợ, sau đó đổi ngược lại). <br>4. <span class='keyword-highlight'>Rút kinh nghiệm:</span> Trong các tiết sau, em sẽ chủ động phân công rõ vai trò 'người thao tác' và 'người hướng dẫn' ngay từ đầu giờ để tránh xung đột."
+            },
+            {
+                id: "th_4",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Không bêu rếu - Giáo dục sự trung thực",
+                question: "Tình huống: Khi nộp bài thực hành (ví dụ tệp Word hoặc PowerPoint), đồng chí phát hiện bạn A copy y hệt file của bạn B rồi đổi tên nộp cho cô. Đồng chí sẽ làm gì?",
+                answer: "Dạ thưa BGK, với hành vi gian lận này, em sẽ xử lý khéo léo để bảo vệ lòng tự trọng của học sinh tiểu học:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em tuyệt đối không bêu rếu bạn A trước lớp là 'kẻ ăn cắp bài'. Em sẽ gọi riêng bạn A hoặc xuống tận nơi để nói chuyện.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Em có thể yêu cầu A thao tác lại một bước nhỏ trong bài. Nếu A không làm được, em hỏi nhẹ nhàng lí do vì sao copy (do không biết làm hay do không kịp thời gian).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại bài học số 6 về 'Đạo đức, pháp luật và văn hóa số' (Tôn trọng bản quyền, tài sản trí tuệ). Khẳng định việc lấy bài người khác là sai phẩm chất 'Trung thực'.<br>4. <span class='keyword-highlight'>Giải pháp:</span> Em cho bạn A cơ hội làm lại một bài đơn giản hơn và sẵn sàng hướng dẫn lại phần em ấy chưa hiểu để em ấy tự tin tự làm bài của mình."
+            },
+            {
+                id: "th_5",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Khích lệ - Kèm cặp - Chia nhỏ nhiệm vụ",
+                question: "Tình huống: Trong lớp có một học sinh tiếp thu rất chậm, thao tác chuột/phím yếu, luôn không hoàn thành bài thực hành. Đồng chí sẽ giúp đỡ em đó ra sao?",
+                answer: "Dạ thưa BGK, theo đúng tinh thần Thông tư 27 (đánh giá vì sự tiến bộ, không tạo áp lực), em sẽ thực hiện:<br><br>1. <span class='keyword-highlight'>Giảm tải yêu cầu:</span> Chia nhỏ nhiệm vụ bài thực hành. Thay vì yêu cầu em làm toàn bộ sản phẩm, em chỉ yêu cầu em làm được 1-2 thao tác cơ bản nhất.<br>2. <span class='keyword-highlight'>Đôi bạn cùng tiến:</span> Xếp em ngồi cạnh một bạn học tốt, nhiệt tình để được hỗ trợ trực tiếp (Dạy học hợp tác).<br>3. <span class='keyword-highlight'>Động viên kịp thời:</span> Chỉ cần em hoàn thành được một bước nhỏ, em sẽ khen ngợi ngay trước lớp để tạo động lực và sự tự tin cho em."
+            },
+            {
+                id: "th_8",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Linh hoạt - Không hoảng loạn - Lập trình Unplugged",
+                question: "Tình huống: Đang có Ban giám khảo dự giờ thao giảng môn Tin học, đột nhiên phòng máy mất điện toàn bộ. Đồng chí xử lí thế nào?",
+                answer: "Dạ thưa BGK, đây là tình huống đo lường bản lĩnh giáo viên, em sẽ bình tĩnh xử lý:<br><br>1. <span class='keyword-highlight'>Ổn định tại chỗ:</span> Lập tức yêu cầu học sinh ngồi im tại chỗ, không chạy lộn xộn. Báo cáo nhanh với BGK xin phép chuyển phương án.<br>2. <span class='keyword-highlight'>Mở rộng không gian:</span> Nhờ lớp trưởng mở tung rèm cửa, cửa sổ để lấy ánh sáng tự nhiên.<br>3. <span class='keyword-highlight'>Chuyển đổi phương pháp (Unplugged):</span> Đổi ngay bài thực hành trên máy sang hoạt động <span class='keyword-highlight'>'Tin học không máy tính'</span>. Ví dụ: gọi 1 bạn lên đóng vai Robot, 1 bạn ra lệnh di chuyển (để dạy tư duy thuật toán).<br>4. <span class='keyword-highlight'>Giáo dục:</span> Nhấn mạnh với HS: 'Tin học không chỉ là cắm mặt vào máy, mà cốt lõi là tư duy giải quyết vấn đề'. Cách này sẽ gây ấn tượng cực mạnh với giám khảo."
+            },
+            {
+                id: "th_9",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Khen ngợi - Phân hóa - Giao vai trợ giảng",
+                question: "Tình huống: Có một học sinh rất giỏi máy tính (có thể do học thêm), luôn làm xong bài trong 2 phút rồi chê bài cô dạy quá dễ, quay sang phá rối các bạn khác. Đồng chí xử lý sao?",
+                answer: "Dạ thưa BGK, với học sinh có năng khiếu vượt trội, nguyên tắc là không vùi dập mà phải tạo không gian cho em tỏa sáng đúng chỗ:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Nhẹ nhàng nhắc em giữ trật tự không ảnh hưởng bạn khác.<br>2. <span class='keyword-highlight'>Tìm hiểu & Ghi nhận:</span> Lại gần xem bài của em, khen ngợi tốc độ và kĩ năng của em trước lớp.<br>3. <span class='keyword-highlight'>Phân hóa năng lực:</span> Giao ngay cho em một <span class='keyword-highlight'>'nhiệm vụ ngôi sao'</span> (Ví dụ: SGK yêu cầu vẽ hình vuông Scratch, cô đố em vẽ được ngôi sao 5 cánh).<br>4. <span class='keyword-highlight'>Giao vai trò:</span> Phong em làm 'Trợ giảng nhí' hoặc 'Kĩ sư trưởng' đi hỗ trợ cô hướng dẫn các bạn chậm hơn. Việc này vừa giúp em bớt rảnh rỗi phá rối, vừa rèn luyện kĩ năng Giao tiếp và Hợp tác cho em."
+            },
+            {
                 id: "th_10",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
                 mantra: "Bảo vệ nạn nhân - Giáo dục kỉ luật số",
                 question: "Tình huống: Đồng chí dùng phần mềm quản lí lớp (NetSupport) và phát hiện một học sinh đang dùng tính năng Chat LAN để trêu chọc, chê bai ngoại hình của bạn khác. Đồng chí xử lý thế nào?",
-                answer: "Dạ thưa BGK, đây là biểu hiện của 'Bắt nạt qua mạng', cần xử lý dứt điểm và khéo léo:<br><br>1. <span class='keyword-highlight'>Ngăn chặn:</span> Dùng quyền Admin khóa ngay màn hình và khóa tính năng Chat của máy học sinh đó.<br>2. <span class='keyword-highlight'>Bảo vệ nạn nhân:</span> Tuyệt đối không đọc to tin nhắn đó lên trước lớp. Gọi riêng bạn nhắn tin ra góc lớp.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Phân tích theo chủ đề 4 'Đạo đức số'. Giải thích việc chê bai bạn trên mạng là hành vi vi phạm đạo đức và pháp luật. Yêu cầu em xin lỗi bạn.<br>4. <span class='keyword-highlight'>Rút kinh nghiệm:</span> Tiết sau, lồng ghép hoạt động giáo dục chung về 'Nỗi buồn khi bị trêu chọc trên mạng'."
+                answer: "Dạ thưa BGK, đây là biểu hiện của 'Bắt nạt qua mạng', cần xử lý dứt điểm và khéo léo:<br><br>1. <span class='keyword-highlight'>Ngăn chặn:</span> Dùng quyền Admin từ máy chủ GV khóa ngay màn hình và khóa tính năng Chat của máy học sinh đó.<br>2. <span class='keyword-highlight'>Bảo vệ nạn nhân:</span> Tuyệt đối không đọc to tin nhắn đó lên trước lớp làm nạn nhân xấu hổ. Gọi riêng bạn nhắn tin ra góc lớp (hoặc chờ cuối giờ).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Phân tích theo chủ đề 4 'Đạo đức số'. Giải thích việc chê bai bạn trên mạng là hành vi vi phạm đạo đức và pháp luật. Yêu cầu em tự kiểm điểm và xin lỗi bạn nạn nhân.<br>4. <span class='keyword-highlight'>Rút kinh nghiệm:</span> Tiết sau, em sẽ lồng ghép luôn một hoạt động ẩn danh về 'Nỗi buồn khi bị trêu chọc trên mạng' để giáo dục chung cho toàn lớp."
             },
-
-            // 10 TÌNH HUỐNG MỚI SIÊU ÉO LE (ĐẠI BOSS)
             {
-                id: "th_13",
+                id: "th_11",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
-                mantra: "Thu hồi - Không bêu rếu - Trách nhiệm của công",
-                question: "Tình huống [Mới]: Hết giờ thực hành, đồng chí phát hiện một học sinh nam đang lén dùng thước kẻ cạy các phím trên bàn phím máy tính bỏ vào cặp để mang về làm 'đồ chơi'. Đồng chí xử lí thế nào?",
-                answer: "Dạ thưa BGK, đây là hành vi phá hoại tài sản nhà trường, em sẽ xử lý thật nghiêm nhưng khéo léo để không làm học sinh bị tổn thương tâm lí:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Yêu cầu cả lớp nán lại 1 phút. Em tiến đến chỗ học sinh đó, nhẹ nhàng nhưng kiên quyết yêu cầu em bỏ các phím ra và lắp lại. Tuyệt đối không la lên 'Trộm cắp' trước mặt cả lớp.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Giữ em lại cuối giờ, hỏi lí do (thường các bé lớp 4 thấy phím cơ kêu vui tai nên tò mò muốn tháo về chơi).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Nhắc lại bài 'An toàn và giữ gìn thiết bị'. Phân tích rõ: 'Con tháo 1 phím thì các bạn lớp sau không thể học được nữa, đó là phá hoại tài sản chung'. Yêu cầu em viết bản kiểm điểm tự nhận lỗi.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Báo với GVCN. Nếu bàn phím bị gãy chốt hỏng hoàn toàn, phải mời phụ huynh trao đổi và bồi thường theo quy định của trường."
+                mantra: "Lắng nghe - Giải thích bằng Luật - Đồng hành",
+                question: "Tình huống: Phụ huynh gọi điện bức xúc: 'Môn Tin học là môn phụ mà cô bắt học lập trình Scratch khó thế, cháu nhà tôi không hiểu gì, cô châm chước cho cháu qua môn là được'. Đồng chí phản hồi thế nào?",
+                answer: "Dạ thưa BGK, khi làm việc với phụ huynh, nguyên tắc là Mềm mỏng nhưng phải bám sát Chương trình GDPT:<br><br>1. <span class='keyword-highlight'>Lắng nghe & Đồng cảm:</span> Dạ vâng, em rất hiểu sự lo lắng của anh/chị khi thấy con học môn mới có vẻ khó khăn.<br>2. <span class='keyword-highlight'>Giải thích bằng Pháp lí:</span> Em giải thích nhẹ nhàng: 'Thưa anh/chị, theo Thông tư 32 mới, Tin học nay là môn BẮT BUỘC. Học lập trình Scratch lớp 4 không phải để thành kĩ sư CNTT, mà mục đích cốt lõi là rèn cho con tính logic và Tư duy giải quyết vấn đề.'<br>3. <span class='keyword-highlight'>Cam kết sư phạm:</span> Khẳng định cô giáo luôn đánh giá vì sự tiến bộ. Cô sẽ giảm tải, chia nhỏ bài tập và phân bạn giỏi kèm cặp cháu trên lớp.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Mong anh/chị động viên con ở nhà thay vì tạo tâm lí ỷ lại 'môn phụ' cho con."
             },
             {
-                id: "th_14",
+                id: "th_12",
                 topic: "Xử lý Tình huống Sư phạm",
                 topicId: "tinh-huong",
                 icon: "🛡️",
-                mantra: "Rút nóng - Chuyển hướng - Giáo dục bảo mật",
-                question: "Tình huống [Mới]: Đồng chí cho học sinh cắm USB cá nhân để copy bài. Đột nhiên máy chiếu của GV (đang share màn hình cả lớp) bị nhiễm virus từ USB một học sinh, tự động bật lên các hình ảnh/video nhạy cảm, kì dị. Đồng chí phản ứng ra sao?",
-                answer: "Dạ thưa BGK, đây là sự cố 'đỏ mặt' cực kỳ nhạy cảm. Phản xạ của em phải tính bằng giây:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ (Cắt đứt):</span> Em lập tức <span class='keyword-highlight'>rút cáp máy chiếu hoặc tắt ngay nguồn màn hình</span> (ấn nút Power màn hình). Đồng thời lớn tiếng đánh lạc hướng cả lớp: 'Các con quay hết xuống cuối lớp xem bảng tin/hoặc nhắm mắt lại chơi trò chơi 30 giây!'.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Rút USB đó ra, kiểm tra riêng sau xem là do máy ở nhà em đó nhiễm virus tự lây lan hay do em cố tình tải (lớp 4 thường là vô tình nhiễm virus).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Em bình tĩnh bật lại máy tính. Lấy ngay sự cố này làm 'bài học xương máu' để dạy về bài <span class='keyword-highlight'>Mã độc và an toàn thiết bị</span>. Dạy các em tuyệt đối không cắm USB bừa bãi.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Yêu cầu HS mang USB về nhờ bố mẹ format, báo KTV quét virus toàn bộ hệ thống máy giáo viên."
-            },
-            {
-                id: "th_15",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Tôn trọng - Giải thích khoa học - Thuyết phục Phụ huynh",
-                question: "Tình huống [Mới]: Trong giờ thực hành, một học sinh khoanh tay kiên quyết không đụng vào chuột và nói to: 'Mẹ con bảo nhìn máy tính nhiều hỏng mắt, mẹ cấm con học môn này!'. Đồng chí giải quyết thế nào?",
-                answer: "Dạ thưa BGK, tình huống này bắt nguồn từ định kiến của phụ huynh. Em sẽ không ép buộc HS ngay lúc đó mà xử lý như sau:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em mỉm cười nhẹ nhàng: 'Cô khen mẹ con rất quan tâm đến sức khỏe của con. Tạm thời con có thể ngồi quan sát màn hình từ xa, không cần thao tác sát máy'.<br>2. <span class='keyword-highlight'>Tìm hiểu & Giáo dục (Ngay tại lớp):</span> Em dừng lại 2 phút, dạy cả lớp bài học về <span class='keyword-highlight'>'Tư thế ngồi và khoảng cách an toàn'</span>. Giới thiệu quy tắc 20-20-20 (nhìn màn 20 phút, nghỉ 20 giây nhìn xa 20 feet) để chứng minh rằng học máy tính đúng cách sẽ không hỏng mắt.<br>3. <span class='keyword-highlight'>Cuốn hút:</span> Em chiếu các bài lập trình game Scratch rất vui nhộn của lớp khác, kích thích sự tò mò để em đó tự nguyện xin được thực hành.<br>4. <span class='keyword-highlight'>Phối hợp (Quan trọng):</span> Cuối buổi, em sẽ gọi điện trực tiếp cho phụ huynh. Khẳng định môn Tin học là bắt buộc, nhà trường có chuẩn ánh sáng và thời gian. Thuyết phục PH đồng hành để con không bị mù chữ thời đại số."
-            },
-            {
-                id: "th_16",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Không tức giận - Chuyển hóa tài năng - Siết kĩ thuật",
-                question: "Tình huống [Mới]: Đồng chí dùng NetSupport để khóa màn hình học sinh giảng bài. Tuy nhiên, một 'hacker nhí' trong lớp biết cách rút cáp mạng LAN hoặc dùng phím tắt ngắt kết nối để qua mặt phần mềm, sau đó dạy các bạn khác làm theo. Đồng chí xử lí sao?",
-                answer: "Dạ thưa BGK, học sinh tiểu học giờ rất thông minh công nghệ. Việc cáu gắt sẽ làm các em càng thích thể hiện. Em xử lý bằng 'Đắc nhân tâm':<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em tạm dừng giảng bài, đi thẳng xuống máy của em đó. Yêu cầu em dừng thao tác và cắm lại dây mạng.<br>2. <span class='keyword-highlight'>Tìm hiểu & Ghi nhận:</span> Hỏi em học cách đó ở đâu. Em sẽ <span class='keyword-highlight'>khen ngợi công khai:</span> 'Cô rất nể phục khả năng mò mẫm máy tính của con, con rất có tố chất làm kĩ sư CNTT'.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Lật ngược vấn đề: 'Nhưng một kĩ sư giỏi là người dùng tài năng để bảo vệ hệ thống chứ không phải phá luật. Việc con qua mặt phần mềm là vi phạm nội quy mạng máy tính'.<br>4. <span class='keyword-highlight'>Chuyển hóa:</span> Em thách thức em ấy: 'Nếu con giỏi, tiết này con làm nốt bài Scratch nâng cao này, làm được cô cho con tự do dùng máy 5 phút'. Về kĩ thuật, em sẽ nhờ KTV cấu hình lại Group Policy để chặn triệt để thao tác ngắt mạng."
-            },
-            {
-                id: "th_17",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Xóa dấu vết - Bảo vệ tâm lí - Kỉ luật nghiêm",
-                question: "Tình huống [Mới]: Đồng chí phát hiện một nhóm học sinh dùng Webcam phòng máy lén chụp một khoảnh khắc bạn nữ đang ngáp/xấu xí, sau đó cài làm hình nền Desktop máy tính để cả lớp cười ồ lên. Đồng chí sẽ làm gì?",
-                answer: "Dạ thưa BGK, đây là tình huống xâm phạm hình ảnh cá nhân, rất dễ gây chấn thương tâm lý bạo lực học đường. Em xử lý nhanh gọn:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ (Dập tắt):</span> Em lập tức dùng máy chủ (Admin) điều khiển tắt hình nền máy đó, hoặc đến tận nơi đổi Desktop về mặc định. Nghiêm mặt yêu cầu cả lớp trật tự.<br>2. <span class='keyword-highlight'>Bảo vệ nạn nhân:</span> Gọi bạn nữ đó ra động viên, trấn an em rằng cô đã xóa ảnh đó rồi.<br>3. <span class='keyword-highlight'>Giáo dục Kỉ luật thép:</span> Em gọi nhóm chụp ảnh đứng lên. Lồng ghép bài 'Giao tiếp an toàn và Tôn trọng pháp luật'. Nhấn mạnh hành vi chụp trộm và bêu rếu hình ảnh người khác trên mạng là <span class='keyword-highlight'>vi phạm pháp luật nghiêm trọng</span>. Yêu cầu nhóm này xin lỗi bạn nữ công khai trước lớp.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Xóa vĩnh viễn file ảnh trong máy. Báo cáo GVCN để nhắc nhở phụ huynh quản lý hành vi sử dụng thiết bị của nhóm học sinh này."
-            },
-            {
-                id: "th_18",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Khôi phục nhanh - Trấn an - Dạy quy trình lưu trữ",
-                question: "Tình huống [Mới]: Gần hết giờ, một học sinh hốt hoảng khóc lóc báo cáo: 'Cô ơi con lỡ ấn nút Delete xóa nhầm thư mục chứa bài thi thực hành của cả dãy máy rồi!'. Các bạn xung quanh nháo nhào. Đồng chí làm gì?",
-                answer: "Dạ thưa BGK, mất dữ liệu là nỗi ám ảnh lớn nhất. Em sẽ dùng bản lĩnh chuyên môn để xử lý:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Hô to: 'Tất cả các bạn rời tay khỏi chuột ngay lập tức, không ai được thao tác thêm gì!'. Em chạy đến máy bị xóa.<br>2. <span class='keyword-highlight'>Khôi phục (Tìm hiểu):</span> Trấn an em học sinh đang khóc: 'Không sao con, cô lấy lại được'. Em lập tức mở Thùng rác (Recycle Bin) và chọn <span class='keyword-highlight'>Restore</span> thư mục đó. (Nếu lỡ Shift+Delete, em sẽ trấn an lớp và dùng phần mềm Recovery sau giờ học).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Sau khi lấy lại bài, em không phạt em đó vì là lỗi vô ý. Thay vào đó, em dùng 5 phút cuối dạy lại bài 'Tổ chức lưu trữ', hướng dẫn HS cách khóa thư mục (Read-only) và cách khôi phục rác.<br>4. <span class='keyword-highlight'>Rút kinh nghiệm:</span> Yêu cầu từ tiết sau, bài thi phải được lưu thẳng lên thư mục mạng (Share Folder) có phân quyền chỉ GV được xóa để đảm bảo an toàn 100%."
-            },
-            {
-                id: "th_19",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Mời ra ngoài - Lắng nghe - Minh chứng thực tế",
-                question: "Tình huống [Mới]: Trong giờ học lập trình Scratch (các em đang test game), một phụ huynh đi ngang qua phòng máy nhìn vào, đùng đùng xông thẳng vào lớp mắng: 'Sao cô lại dung túng cho bọn trẻ chơi điện tử trong giờ học thế này?'. Đồng chí xử lí ra sao?",
-                answer: "Dạ thưa BGK, phụ huynh đang mất bình tĩnh, tuyệt đối không cãi tay đôi trước mặt học sinh:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em tươi cười, nhờ lớp trưởng quản lí các bạn tiếp tục làm bài. Em mời Phụ huynh bước ra ngoài hành lang hoặc xuống phòng khách để nói chuyện riêng.<br>2. <span class='keyword-highlight'>Lắng nghe & Đồng cảm:</span> Em rót nước mời PH, lắng nghe PH xả hết bức xúc. 'Dạ em rất hiểu sự lo lắng của bác khi nhìn qua cửa sổ thấy các con đang chơi game'.<br>3. <span class='keyword-highlight'>Giải thích & Minh chứng:</span> Em nhẹ nhàng lấy SGK Tin học 4 ra, lật đúng Chủ đề 6. Em giải thích: 'Thưa bác, đây không phải chơi game giải trí. Đây là môn Lập trình. Các con đang phải học tư duy Toán học, viết từng dòng lệnh code để TỰ TẠO RA trò chơi đó. Việc con chơi thử là để kiểm tra lỗi phần mềm (Debug) ạ'.<br>4. <span class='keyword-highlight'>Thuyết phục:</span> Mời phụ huynh vào lớp 5 phút để tận mắt xem con mình tự hào giới thiệu sản phẩm lập trình. Phụ huynh sẽ lập tức hiểu và nể phục giáo viên."
-            },
-            {
-                id: "th_20",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Ngắt điện tổng - Sơ cứu - Trấn an tập thể",
-                question: "Tình huống [Mới]: Trong lúc thao tác, một học sinh thò tay ra sau thùng máy CPU và bị giật điện (tĩnh điện nhẹ nhưng gây giật mình), em đó khóc thét lên khiến cả lớp hoảng loạn định bỏ chạy ra ngoài. Đồng chí làm gì?",
-                answer: "Dạ thưa BGK, an toàn tính mạng là số 1. Dù là điện nhẹ cũng phải phản ứng chuẩn kịch bản:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Lập tức dập Cầu dao điện (Aptomat) của dãy máy đó hoặc toàn phòng. Hô to dõng dạc: 'Tất cả ngồi im tại chỗ, đã ngắt điện an toàn!'.<br>2. <span class='keyword-highlight'>Tìm hiểu & Sơ cứu:</span> Chạy đến tách em đó ra khỏi bàn. Kiểm tra tay (thường chỉ bị tê do tĩnh điện vỏ case rò rỉ). Trấn an em nín khóc.<br>3. <span class='keyword-highlight'>Giáo dục:</span> Trấn an cả lớp: 'Đây chỉ là hiện tượng tĩnh điện nhẹ do trời ẩm, không gây nguy hiểm tính mạng vì cô đã ngắt điện tổng. Tuy nhiên các con tuyệt đối không được sờ vào phía sau thùng máy có nhiều dây điện'.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Chuyển em đó sang máy tính an toàn khác. Báo ngay cho KTV nhà trường lên đấu nối lại dây tiếp địa (tiếp mát) cho toàn bộ hệ thống máy tính."
-            },
-            {
-                id: "th_21",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Chặn truy cập - Cảnh báo - Biến thành Case study",
-                question: "Tình huống [Mới]: Đang học bài 'Tìm kiếm thông tin trên Internet', một học sinh reo lên: 'Cô ơi con trúng thưởng iPhone 15, con vừa nhập số điện thoại của mẹ con vào rồi để người ta gửi quà!'. Đồng chí xử lí thế nào?",
-                answer: "Dạ thưa BGK, đây là ca lừa đảo trực tuyến kinh điển đánh vào sự ngây thơ của trẻ:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Chạy tới máy đó lập tức, tắt ngay tab trình duyệt lừa đảo hoặc rút luôn dây mạng máy đó để ngăn web lấy thêm thông tin.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Hỏi em học sinh đã nhập những gì (chỉ nhập SĐT, hay đã nhập số thẻ ngân hàng/Mã OTP báo về điện thoại mẹ).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Không mắng em. Em chiếu luôn giao diện web lừa đảo đó lên màn hình lớn, biến nó thành <span class='keyword-highlight'>Case Study thực tế</span> cho cả lớp: 'Các con nhớ kĩ bài Đạo đức số, trên mạng không ai cho không ai cái gì. Đây là chiêu lừa lấy thông tin để trộm tiền trong thẻ của bố mẹ'.<br>4. <span class='keyword-highlight'>Phối hợp:</span> Lập tức mượn điện thoại gọi cho phụ huynh em đó để cảnh báo: 'Chị ơi cháu lỡ nhập SĐT vào web đen, nếu có tin nhắn gửi mã OTP hay link lạ chị tuyệt đối không được bấm vào nhé'."
-            },
-            {
-                id: "th_22",
-                topic: "Xử lý Tình huống Sư phạm",
-                topicId: "tinh-huong",
-                icon: "🛡️",
-                mantra: "Nhất quán luật chơi - Lưu thành quả - Chuyển giao",
-                question: "Tình huống [Mới]: Tiếng trống hết giờ đã điểm, nhưng một học sinh quá say mê với trò chơi Scratch em vừa lập trình, em kiên quyết giữ rịt lấy con chuột, ăn vạ khóc lóc ầm ĩ không chịu đứng lên nhường máy cho ca học lớp sau. Đồng chí xử lí sao?",
-                answer: "Dạ thưa BGK, tâm lý trẻ tiểu học khi được làm ra sản phẩm thường rất gắn bó. Em xử lý bằng cách tôn trọng thành quả của em nhưng vẫn giữ kỉ luật:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Em đến cạnh, vỗ vai nhẹ nhàng. Yêu cầu các bạn lớp sau cứ vào phòng chờ, xếp hàng trật tự.<br>2. <span class='keyword-highlight'>Tìm hiểu & Tôn trọng:</span> Em nói: 'Cô biết con đang lập trình dở trò chơi rất hay, con rất tiếc khi phải dừng lại đúng không? Cô rất khen ngợi sự tập trung của con'.<br>3. <span class='keyword-highlight'>Giáo dục & Giải pháp:</span> Em đề xuất: 'Bây giờ cô trò mình cùng nhấn nút [Save to your computer] để lưu lại toàn bộ công sức của con nhé. Tiết sau con mở ra làm tiếp, đảm bảo không mất 1 khối lệnh nào. Nếu con cứ ngồi đây, các em lớp 1 sẽ không có máy để học, thế là vi phạm kỉ luật nhà trường đấy'.<br>4. <span class='keyword-highlight'>Chuyển giao:</span> Khi học sinh thấy sản phẩm được lưu an toàn, em sẽ tự động buông chuột. Em mỉm cười chào em và dắt em ra trao lại cho cô giáo chủ nhiệm."
+                mantra: "Đồng cảm - Tận dụng thời gian lớp",
+                question: "Tình huống: Khi giao bài tập Vận dụng về nhà, một học sinh buồn bã nói: 'Nhà con không có máy tính nên con không làm đâu, con chả thích học môn này'. Đồng chí xử lý sao?",
+                answer: "Dạ thưa BGK, đây là tình huống rất hay gặp ở khu vực nông thôn, đòi hỏi sự tinh tế của người thầy:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Không phê bình, nhẹ nhàng mời em ngồi xuống và mỉm cười động viên em.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Trò chuyện riêng để hiểu khó khăn của gia đình em.<br>3. <span class='keyword-highlight'>Giáo dục tư duy:</span> Động viên em: 'Tin học giúp ích rất nhiều cho con sau này. Dù không có máy tính, con vẫn có thể học tốt tư duy giải quyết vấn đề trên giấy'.<br>4. <span class='keyword-highlight'>Hỗ trợ thực tế:</span> Em sẽ tạo điều kiện tối đa. Cho phép em thực hành bù vào giờ ra chơi (nếu GV có mặt), hoặc giao bài tập 'Lên ý tưởng ra giấy' thay vì làm trên máy. Trên lớp, em ưu tiên ghép em vào nhóm với bạn học khá để em được thao tác nhiều hơn."
             },
 
             // TIẾN TRÌNH DẠY HỌC (KINH NGHIỆM THỰC CHIẾN)
@@ -326,6 +297,44 @@
                 mantra: "Làm mẫu chuẩn - Khuyến khích sáng tạo",
                 question: "Đối với hoạt động Luyện tập và Vận dụng (đặc biệt là giờ thực hành máy), đồng chí có kinh nghiệm gì để quản lý tốt và phát triển năng lực học sinh?",
                 answer: "Dạ thưa BGK, giờ thực hành trên phòng máy rất dễ lộn xộn nếu không có phương pháp tốt. Kinh nghiệm của em là:<br><br>1. <span class='keyword-highlight'>Làm mẫu (Modeling):</span> Trước khi cho HS tự thực hành, GV thao tác mẫu chậm rãi trên màn hình chiếu 1-2 lần để HS ghi nhớ các bước.<br>2. <span class='keyword-highlight'>Học tập hợp tác:</span> Áp dụng 'đôi bạn cùng tiến', một bạn làm tốt hỗ trợ bạn làm chậm hơn. GV đi tuần tự quan sát, không ngồi một chỗ.<br>3. <span class='keyword-highlight'>Mở rộng & Sáng tạo ở phần Vận dụng:</span> Không gò ép tất cả phải làm giống hệt SGK. Em luôn khuyến khích các em thay đổi nội dung, màu sắc (ví dụ bài Scratch có thể đổi nhân vật) để phát huy cá tính, cuối giờ chiếu sản phẩm tiêu biểu để <span class='keyword-highlight'>tuyên dương trước lớp</span>."
+            },
+
+            // CÁC CÂU HỎI BỔ SUNG MỚI (PHƯƠNG PHÁP & TÌNH HUỐNG THỰC TẾ)
+            {
+                id: "p3_3",
+                topic: "Chuyên sâu: Dạy Word & PowerPoint",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Gõ thô trước - Trang trí sau",
+                question: "Khi dạy phần mềm Trình chiếu (PowerPoint) lớp 4, học sinh thường sa đà vào việc chèn hiệu ứng bay nhảy, chuyển trang mà quên mất nội dung. Đồng chí xử lý thế nào?",
+                answer: "Dạ thưa BGK, đây là tâm lý chung của trẻ nhỏ vì các em rất thích màu sắc và chuyển động. Để khắc phục, em sẽ áp dụng quy trình:<br><br>1. <span class='keyword-highlight'>Dạy theo các bước rõ ràng:</span> Bắt buộc học sinh làm theo nguyên tắc 'Gõ nội dung chữ thô trước -> Chèn hình ảnh sau -> Cuối cùng mới làm hiệu ứng'.<br>2. <span class='keyword-highlight'>Quy định tiêu chí đánh giá:</span> Ngay từ đầu giờ, em công bố barem điểm rõ ràng (ví dụ: Nội dung đủ ý 7 điểm, Hiệu ứng đẹp vừa phải 3 điểm).<br>3. <span class='keyword-highlight'>Cho xem mẫu chuẩn:</span> Cho các em xem 1 slide lòe loẹt, rối mắt và 1 slide chuẩn, tối giản để các em tự so sánh và rút ra bài học về thẩm mỹ."
+            },
+            {
+                id: "p3_4",
+                topic: "Chuyên sâu: Dạy Word & PowerPoint",
+                topicId: "chuyen-sau",
+                icon: "🚀",
+                mantra: "Vừa học vừa chơi - Thi đua gõ đúng",
+                question: "Học sinh lớp 4 khi học soạn thảo văn bản (Word) thường gõ rất chậm, hay mổ cò 1 ngón dẫn đến chán nản. Giải pháp của đồng chí là gì?",
+                answer: "Dạ thưa BGK, để rèn kĩ năng gõ phím mà không gây nhàm chán, em sẽ:<br><br>1. <span class='keyword-highlight'>Kết hợp phần mềm/trò chơi:</span> Đan xen 5-10 phút đầu giờ dùng các trò chơi luyện gõ 10 ngón (như Mario Teaches Typing, Typing.com) để tạo hứng thú.<br>2. <span class='keyword-highlight'>Ngữ liệu gần gũi:</span> Thay vì gõ các văn bản khô khan, em cho các em gõ các câu đố vui, bài thơ ngắn, hoặc giới thiệu về gia đình, sở thích của chính các em.<br>3. <span class='keyword-highlight'>Tổ chức thi đua:</span> Tổ chức các cuộc thi nhỏ 'Kiện tướng gõ phím' trong nhóm, tuyên dương những bạn đặt đúng tư thế tay và gõ chính xác (ưu tiên độ chính xác trước, tốc độ sau)."
+            },
+            {
+                id: "th_6",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Giữ hiện trạng - An toàn điện - Phối hợp BGH",
+                question: "Tình huống: Trong giờ thực hành, đồng chí phát hiện một nhóm học sinh đang tự ý tháo chuột, rút dây cáp bàn phím cắm sang máy khác để nghịch ngợm. Đồng chí xử lí ra sao?",
+                answer: "Dạ thưa BGK, áp dụng công thức 4 bước, em xử lý như sau:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Bình tĩnh, yêu cầu các em dừng lại ngay lập tức, bỏ tay ra khỏi thiết bị để tránh điện giật hoặc chập cháy.<br>2. <span class='keyword-highlight'>Tìm hiểu:</span> Hỏi nhẹ nhàng nguyên nhân (do thiết bị hỏng nên các em tự đổi, hay chỉ là đùa nghịch).<br>3. <span class='keyword-highlight'>Giáo dục:</span> Phân tích sự nguy hiểm của việc rút 'nóng' thiết bị điện, nhắc lại 'Nội quy phòng máy' (Tuyệt đối không tự ý tháo lắp thiết bị).<br>4. <span class='keyword-highlight'>Giải pháp:</span> Hướng dẫn các em cắm lại cẩn thận (dưới sự giám sát của GV). Nhấn mạnh nếu làm hỏng tài sản nhà trường, phụ huynh sẽ phải chịu trách nhiệm để các em có ý thức bảo vệ của công."
+            },
+            {
+                id: "th_7",
+                topic: "Xử lý Tình huống Sư phạm",
+                topicId: "tinh-huong",
+                icon: "🛡️",
+                mantra: "Chặn hành vi - Giao việc thêm",
+                question: "Tình huống: Trong giờ thực hành lập trình Scratch, đồng chí thấy một học sinh lén mở tab khác để chơi game. Khi cô đến gần, em đó vội bấm Alt+Tab (hoặc tắt đi) để che giấu. Đồng chí sẽ làm gì?",
+                answer: "Dạ thưa BGK, với lứa tuổi này các em rất hay tò mò. Em sẽ xử lý khéo léo:<br><br>1. <span class='keyword-highlight'>Xử lý tại chỗ:</span> Nhẹ nhàng tiến đến, không la mắng bêu rếu. Yêu cầu em mở lại màn hình vừa xem.<br>2. <span class='keyword-highlight'>Tìm hiểu nguyên nhân:</span> Em hỏi xem tại sao em không làm bài thực hành? (Do bài khó quá không biết làm hay do đã làm xong sớm hết rồi).<br>3. <span class='keyword-highlight'>Điều phối & Giáo dục:</span> <br>- Nếu chưa làm xong: Phân tích việc chơi game sai nội quy, giảng lại thao tác lập trình mà em đang vướng mắc.<br>- Nếu làm xong sớm: Em sẽ khen ngợi tốc độ của em, sau đó <span class='keyword-highlight'>giao thêm nhiệm vụ nâng cao</span> (ví dụ: lập trình thêm âm thanh/chướng ngại vật cho game Scratch) hoặc phân công em làm 'trợ giảng' đi hướng dẫn bạn khác.<br>4. <span class='keyword-highlight'>Giải pháp phòng ngừa:</span> Dùng phần mềm quản lý lớp (NetSupport) để theo dõi màn hình, khóa truy cập web không liên quan."
             }
         ];
 
@@ -334,7 +343,7 @@
             { id: 'tong-quan', name: 'Cấu trúc bài học SGK', icon: '📘' },
             { id: 'phuong-phap', name: 'PPDH & Đánh giá', icon: '🛠️' },
             { id: 'chuyen-sau', name: 'Scratch & Đạo đức số', icon: '🚀' },
-            { id: 'tinh-huong', name: 'Tình huống Sư phạm (Mới)', icon: '🛡️' },
+            { id: 'tinh-huong', name: 'Tình huống Sư phạm', icon: '🛡️' },
             { id: 'tien-trinh', name: 'Tiến trình dạy học', icon: '⏱️' }
         ];
 
@@ -425,33 +434,9 @@
                 }
 
                 const card = document.createElement('div');
-                // Highlight situation cards differently based on 'Mới' status for priority review
+                // Highlight situation cards
                 const isSituation = item.topicId === 'tinh-huong';
-                const isNew = item.question.includes('[Mới]');
-                
-                let borderColor = 'border-blue-100';
-                let tagColor = 'bg-blue-500';
-                let contentBg = 'from-blue-50/50';
-                let contentBorder = 'border-blue-100';
-                let lineBorder = 'border-blue-400';
-
-                if (isSituation) {
-                    if (isNew) {
-                        borderColor = 'border-rose-300'; // Đỏ nhạt cho tình huống đại boss
-                        tagColor = 'bg-rose-500';
-                        contentBg = 'from-rose-50/50';
-                        contentBorder = 'border-rose-100';
-                        lineBorder = 'border-rose-400';
-                    } else {
-                        borderColor = 'border-amber-300';
-                        tagColor = 'bg-amber-500';
-                        contentBg = 'from-amber-50/50';
-                        contentBorder = 'border-amber-100';
-                        lineBorder = 'border-amber-400';
-                    }
-                }
-
-                card.className = `bg-white rounded-2xl shadow-sm border ${borderColor} overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`;
+                card.className = `bg-white rounded-2xl shadow-sm border ${isSituation ? 'border-amber-300' : 'border-blue-100'} overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`;
                 
                 const questionArea = document.createElement('div');
                 questionArea.className = 'p-6 cursor-pointer flex justify-between items-start gap-4 group';
@@ -459,10 +444,10 @@
                 questionArea.innerHTML = `
                     <div class="flex-1">
                         <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="text-[11px] font-bold text-white ${tagColor} px-2 py-1 rounded-full uppercase tracking-wider shadow-sm">Câu hỏi</span>
+                            <span class="text-[11px] font-bold text-white ${isSituation ? 'bg-amber-500' : 'bg-blue-500'} px-2 py-1 rounded-full uppercase tracking-wider shadow-sm">Câu hỏi</span>
                             ${item.mantra ? `<span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full border border-amber-200 font-semibold shadow-sm inline-flex items-center gap-1">🔑 ${item.mantra}</span>` : ''}
                         </div>
-                        <h4 class="text-lg font-bold text-slate-800 leading-snug group-hover:text-blue-700 transition-colors">${item.question.replace('[Mới]', '<span class="text-rose-600 font-black">[CỰC KHÓ]</span>')}</h4>
+                        <h4 class="text-lg font-bold text-slate-800 leading-snug group-hover:text-blue-700 transition-colors">${item.question}</h4>
                     </div>
                     <button class="shrink-0 bg-blue-50 hover:bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-xl transition-all border border-blue-200 focus:outline-none shadow-sm flex items-center gap-1" id="btn-${item.id}">
                         Xem đáp án <span class="text-lg leading-none">▾</span>
@@ -471,8 +456,8 @@
 
                 const answerArea = document.createElement('div');
                 answerArea.id = `answer-${item.id}`;
-                answerArea.className = `answer-reveal bg-gradient-to-b ${contentBg} to-white border-t ${contentBorder} px-6 text-base text-slate-700 leading-relaxed`;
-                answerArea.innerHTML = `<div class="py-6 border-l-4 ${lineBorder} pl-4 my-2">${item.answer}</div>`;
+                answerArea.className = `answer-reveal bg-gradient-to-b ${isSituation ? 'from-amber-50/50' : 'from-blue-50/50'} to-white border-t ${isSituation ? 'border-amber-100' : 'border-blue-100'} px-6 text-base text-slate-700 leading-relaxed`;
+                answerArea.innerHTML = `<div class="py-6 border-l-4 ${isSituation ? 'border-amber-400' : 'border-blue-400'} pl-4 my-2">${item.answer}</div>`;
 
                 card.appendChild(questionArea);
                 card.appendChild(answerArea);
@@ -553,7 +538,7 @@
             // Donut Chart for 6 Topics Distribution in Grade 4
             const donutCtx = document.getElementById('donutChart').getContext('2d');
             chartsInstance.donut = new Chart(donutCtx, {
-                type: 'pie', 
+                type: 'pie', // Changed to pie for clear proportion, acting as donut with cutout
                 data: {
                     labels: [
                         'CĐ1: Máy tính & Em', 
@@ -564,14 +549,14 @@
                         'CĐ6: Giải quyết VĐ (Scratch)'
                     ],
                     datasets: [{
-                        data: [3, 2, 2, 2, 4, 3], 
+                        data: [3, 2, 2, 2, 4, 3], // Approximate distribution of lessons/time
                         backgroundColor: [
-                            '#3b82f6', 
-                            '#10b981', 
-                            '#f59e0b', 
-                            '#ef4444', 
-                            '#8b5cf6', 
-                            '#14b8a6'  
+                            '#3b82f6', // blue
+                            '#10b981', // emerald
+                            '#f59e0b', // amber
+                            '#ef4444', // red
+                            '#8b5cf6', // violet
+                            '#14b8a6'  // teal
                         ],
                         borderWidth: 2,
                         borderColor: '#ffffff',
